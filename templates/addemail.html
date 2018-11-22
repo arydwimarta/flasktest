@@ -1,0 +1,89 @@
+{% include "header.html" %}
+
+
+{% block body %}
+
+
+<script>
+ 
+function ShowUTCDate()
+{
+var dNow = new Date();
+var utc = new Date(dNow.getTime() + dNow.getTimezoneOffset() * 60000)
+var utcdate= (utc.getMonth()+1) + '/' + utc.getDate() + '/' + utc.getFullYear() + ' ' + utc.getHours() + ':' + utc.getMinutes();
+$('#currentDate').text(utcdate)
+}
+ 
+</script>
+
+
+<div class="panel=heading">
+
+<h2>Add Email <a class="pull-right btn btn-success" href="/">Back</a> </h2>
+
+</div>
+
+
+
+<div class="panel-body">
+
+<form action="{{ url_for('processemail') }}" method="post">
+<div class="form-group">
+
+    <label for="name">Email</label>
+    <input type="text" class="form-control" name="email" id="email" required = "1"  >
+
+</div>
+
+
+
+    <div class="form-group">
+
+    <label for="name">Email Subject</label>
+    <input type="text" class="form-control" name="email_subject" id="email_subject" required = "1" >
+
+</div>
+
+
+
+
+    <div class="form-group">
+
+    <label for="name">Email Content</label>
+    <input type="text" class="form-control" name="email_content" id="email_content" required = "1"  >
+
+</div>
+
+    <div class="form-group">
+
+    <label for="name">Date Time</label>
+    <label id="ShowUTCDate()">This is UTC DateTime in JQuery</p>
+    <input type="text" class="form-control" name="time_stamp" id="time_stamp" required = "1"  >
+
+</div>
+
+
+    <div class="form-group">
+        <input type="hidden" name="event_id" value="1">
+
+     <input type="hidden" name="action" value="edit">
+     <input type="submit" class="btn btn-success" name="submit" value="Add email">
+
+</div>
+
+
+</form>
+
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+{% include "footer.html" %}

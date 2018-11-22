@@ -1,0 +1,25 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+</script>
+ 
+<script>
+ 
+function ShowUTCDate()
+{
+var dNow = new Date();
+var utc = new Date(dNow.getTime() + dNow.getTimezoneOffset() * 60000)
+var utcdate= (utc.getMonth()+1) + '/' + utc.getDate() + '/' + utc.getFullYear() + ' ' + utc.getHours() + ':' + utc.getMinutes();
+$('#currentDate').text(utcdate)
+}
+ 
+</script>
+</head>
+<body>
+ 
+<h1>Get UTC DateTime in JQuery</h1>
+<label id="currentDate">This is UTC DateTime in JQuery</p>
+<button type="button" onclick="ShowUTCDate()">Show UTC DateTime</button>
+ 
+</body>
+</html>
